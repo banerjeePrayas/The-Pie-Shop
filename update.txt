@@ -1,4 +1,10 @@
+For Heroku:-
 git add .
 git commit -m "Changes in Server.js"
 heroku git:remote -a the-pie-shop   
 git push heroku HEAD:master 
+
+For Github:-
+git add .
+git commit -m "Changes in Server.js"
+git push origin HEAD:master

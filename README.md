@@ -2,7 +2,7 @@
 
 > eCommerce and Blogging platform built with the MERN stack & Redux along with Exquisite Admin Panel.
 
-![screenshot](<https://github.com/banerjeePrayas/The-Pie-Shop/blob/main/uploads/Screenshot%20(155).png>)
+![screenshot](https://drive.google.com/file/d/1s9ZpIB0QzgKWROFN3VeX20InARKGokDn/view)
 
 ### ES Modules in Node
 

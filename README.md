@@ -2,6 +2,8 @@
 
 > eCommerce and Blogging platform built with the MERN stack & Redux along with Exquisite Admin Panel.
 
+### Check Project [Here](https://the-pie-shop.herokuapp.com/)
+
 ![screenshot](https://drive.google.com/file/d/1s9ZpIB0QzgKWROFN3VeX20InARKGokDn/view)
 
 ### ES Modules in Node

@@ -4,7 +4,7 @@
 
 ### Check Project [Here](https://the-pie-shop.herokuapp.com/)
 
-![screenshot](https://ibb.co/44DFzHP)
+![screenshot](https://github.com/banerjeePrayas/The-Pie-Shop/blob/main/uploads/Screenshot%20(155).png?raw=true)
 
 ### ES Modules in Node
 

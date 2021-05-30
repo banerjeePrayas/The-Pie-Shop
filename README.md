@@ -1,6 +1,9 @@
 # The-Pie-Shop
 
-> eCommerce and Blogging platform built with the MERN stack & Redux along with Exquisite Admin Panel.
+> It's basically an E-Commerce & Blogging Page Website.
+I have also Included Custom Backend for Admin Panel so that Admin can Handel Products with their Orders and
+also a Backend for the Blog Page. As it's a Single Page Application it is Smooth as Butter and Very User-Friendly UI. I have also Induced PAY-PAL
+Payment System into this Site. And Stripe Payment System is under development. Many more Updates and Features will be Added from my Side.
 
 ### Check Project [Here](https://the-pie-shop.herokuapp.com/)
 

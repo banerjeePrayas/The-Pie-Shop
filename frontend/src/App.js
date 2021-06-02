@@ -24,6 +24,7 @@ import BlogEditScreen from './screens/BlogEditScreen';
 import AllBlogScreen from './screens/AllBlogScreen';
 
 const App = () => {
+  
   return (
     <Router>
 

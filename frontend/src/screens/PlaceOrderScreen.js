@@ -8,6 +8,7 @@ import { createOrder } from '../actions/orderActions'
 
 const PlaceOrderScreen = ({history}) => {
 
+    
     const dispatch = useDispatch()
 
     const cart = useSelector((state) => state.cart);    
@@ -155,6 +156,10 @@ const PlaceOrderScreen = ({history}) => {
                                 onClick={placeOrderHandler}>
                                     Place Order
                                 </Button>
+                                {/* <Button type='button' className='btn-block' disabled={cartItems.length === 0} 
+                                onClick={displayRazorpay}>
+                                    Place Order
+                                </Button> */}
                             </ListGroup.Item>
                         </ListGroup>
                     </Card>

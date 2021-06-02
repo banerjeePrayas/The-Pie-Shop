@@ -9,7 +9,81 @@ import Loader from '../components/Loader'
 import { getOrderDetails, payOrder, deliverOrder } from '../actions/orderActions'
 import { ORDER_PAY_RESET, ORDER_DELIVER_RESET } from '../constants/orderConstants'
 
+
 const OrderScreen = ({ match, history }) => {
+
+    const loadScript = (src) => {
+        return new Promise((resolve) => {
+            const script = document.createElement("script");
+            script.src = src;
+            script.onload = () => {
+                resolve(true);
+            };
+            script.onerror = () => {
+                resolve(false);
+            };
+            document.body.appendChild(script);
+        });
+    }
+
+    const displayRazorpay = async () => {
+        const res = await loadScript(
+            "https://checkout.razorpay.com/v1/checkout.js"
+        );
+
+        if (!res) {
+            alert("Razorpay SDK failed to load. Are you online?");
+            return;
+        }
+
+        // creating a new order
+        const result = await axios.post("http://localhost:5000/payment/orders");
+
+        if (!result) {
+            alert("Server error. Are you online?");
+            return;
+        }
+
+        // Getting the order details back
+        const { amount, id: order_id, currency } = result.data;
+
+        const options = {
+            key: "rzp_test_r6FiJfddJh76SI", // Enter the Key ID generated from the Dashboard
+            amount: amount.toString(),
+            currency: currency,
+            name: "The-Pie-Shop.",
+            description: "Test Transaction",
+            // image: { logo },
+            order_id: order_id,
+            handler: async function (response) {
+                const data = {
+                    orderCreationId: order_id,
+                    razorpayPaymentId: response.razorpay_payment_id,
+                    razorpayOrderId: response.razorpay_order_id,
+                    razorpaySignature: response.razorpay_signature,
+                };
+
+                const result = await axios.post("http://localhost:5000/payment/success", data);
+
+                alert(result.data.msg);
+            },
+            prefill: {
+                name: "Prayas Banerjee",
+                email: "prayas@example.com",
+                contact: "9999999999",
+            },
+            notes: {
+                address: "PB Corporate Office",
+            },
+            theme: {
+                color: "#61dafb",
+            },
+        };
+
+        const paymentObject = new window.Razorpay(options);
+        paymentObject.open();
+    }
+
 
     const orderId = match.params.id;
 
@@ -194,6 +268,10 @@ const OrderScreen = ({ match, history }) => {
                                     {!sdkReady ? <Loader /> : (
                                         <PayPalButton amount={order.totalPrice} onSuccess={successPaymentHandler} />
                                     )}
+                                    {/* <Button type='button' className='btn-block' disabled={cartItems.length === 0} 
+                                    onClick={displayRazorpay}>
+                                        Place Order
+                                    </Button> */}
                                 </ListGroup.Item>
                             )}
 
